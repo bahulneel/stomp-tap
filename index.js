@@ -24,6 +24,9 @@ function main(urn) {
         console.log(prettyjson.render(jsBody));
       } catch (e) {
       }
+      if (headers.id) {
+        client.ack(headers['message-id'], headers.id);
+      }
     });
   });
 }
